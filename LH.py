@@ -17,7 +17,7 @@ SecretKey = os.environ["SecretKey"]
 
 regions = ["ap-beijing", "ap-chengdu", "ap-guangzhou", "ap-hongkong", "ap-nanjing", "ap-shanghai", "ap-singapore", "ap-tokyo", "eu-moscow", "na-siliconvalley"]
 percent = 0.80  # 流量限额，1表示使用到100%关机，默认设置为95%
-tgToken = os.environ["tgToken"]
+#tgToken = os.environ["tgToken"]
 
 #钉钉机器人告警   
 def sendmessage(message):
@@ -113,8 +113,8 @@ def dofetch(id, key, region):
                 resp_Stop = client.StopInstances(req_Stop) 
                 print(resp_Stop.to_json_string())
                 #添加TG酱通知
-                msgContent= InstanceId+ " ：流量超出限制，即将自动关机。" + "剩余流量：" + TrafficPackageRemaining+ "GB"
-                msgUrl="https://tgbot-red.vercel.app/api?token="+ tgToken +"&message="+ msgContent
+                #msgContent= InstanceId+ " ：流量超出限制，即将自动关机。" + "剩余流量：" + TrafficPackageRemaining+ "GB"
+                #msgUrl="https://tgbot-red.vercel.app/api?token="+ tgToken +"&message="+ msgContent
                 #告警结果：
                 gaojinResult="流量告警结果：流量超出限制，即将自动关机。\n"+"剩余流量：" + str(TrafficPackageRemaining)+ "GB"
                 response= requests.get(url=msgUrl).text
